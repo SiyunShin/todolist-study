@@ -1,0 +1,7 @@
+{
+  "todolist": [
+    { "id": 1, "text": "밥 먹기", "isCompleted": false },
+    { "id": 2, "text": "영화 보기", "isCompleted": false },
+    { "id": 3, "text": "책 보기", "isCompleted": false }
+  ]
+}
