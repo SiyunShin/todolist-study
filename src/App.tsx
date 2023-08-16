@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TodoList from "./components/TodoList";
 
 export type Todo = {
   id: number;
@@ -43,6 +44,7 @@ function App() {
           등록
         </button>
       </form>
+      <TodoList todos={todos} />
     </div>
   );
 }
