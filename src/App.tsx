@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TodoList from "./components/TodoList";
 import Form from "./components/Form";
+import Footer from "./components/Footer";
 
 export type Todo = {
   id: number;
@@ -42,6 +43,7 @@ function App() {
         inputText={inputText}
       />
       <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
+      <Footer todos={todos} setTodos={setTodos} />
     </div>
   );
 }
