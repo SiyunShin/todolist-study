@@ -1,11 +1,11 @@
 type Props = {
   inputText: string;
   handleInputText: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmitTodo: React.FormEventHandler<HTMLFormElement>;
+  handleSubmitTodo: React.FormEventHandler<HTMLFormElement>;
 };
-const Form = ({ inputText, handleInputText, onSubmitTodo }: Props) => {
+const Form = ({ inputText, handleInputText, handleSubmitTodo }: Props) => {
   return (
-    <form onSubmit={onSubmitTodo}>
+    <form onSubmit={handleSubmitTodo}>
       <input
         type="text"
         placeholder="할 일을 입력 해주세요."

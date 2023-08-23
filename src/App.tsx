@@ -16,7 +16,7 @@ function App() {
     setInputText(e.target.value);
   };
 
-  const onSubmitTodo = (e: React.FormEvent) => {
+  const handleSubmitTodo = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputText) {
       setTodos([
@@ -29,15 +29,19 @@ function App() {
     alert("할 일을 입력해주세요");
   };
 
+  const handleDeleteTodo = (id: number) => {
+    setTodos([...todos].filter((item) => item.id !== id));
+  };
+
   return (
     <div>
       <h1>할 일 목록</h1>
       <Form
         handleInputText={handleInputText}
-        onSubmitTodo={onSubmitTodo}
+        handleSubmitTodo={handleSubmitTodo}
         inputText={inputText}
       />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
     </div>
   );
 }
