@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TodoList from "./components/TodoList";
+import Form from "./components/Form";
 
 export type Todo = {
   id: number;
@@ -15,9 +16,7 @@ function App() {
     setInputText(e.target.value);
   };
 
-  const handleSubmitTodo = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const onSubmitTodo = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputText) {
       setTodos([
@@ -33,17 +32,11 @@ function App() {
   return (
     <div>
       <h1>할 일 목록</h1>
-      <form>
-        <input
-          type="text"
-          placeholder="할 일을 입력 해주세요."
-          onChange={(e) => handleInputText(e)}
-          value={inputText}
-        />
-        <button type="submit" onClick={(e) => handleSubmitTodo(e)}>
-          등록
-        </button>
-      </form>
+      <Form
+        handleInputText={handleInputText}
+        onSubmitTodo={onSubmitTodo}
+        inputText={inputText}
+      />
       <TodoList todos={todos} />
     </div>
   );
