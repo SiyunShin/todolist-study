@@ -1,3 +1,4 @@
+import { styled } from "styled-components";
 import { Todo } from "../App";
 
 type Props = {
@@ -10,7 +11,7 @@ const TodoList = ({ todos, handleDeleteTodo, handleCheck }: Props) => {
   return (
     <ul>
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <StyledTodoItem key={todo.id} completed={todo.completed}>
           <label>
             <input type="checkbox" onChange={() => handleCheck(todo.id)} />
             <span>
@@ -20,10 +21,14 @@ const TodoList = ({ todos, handleDeleteTodo, handleCheck }: Props) => {
               삭제
             </button>
           </label>
-        </li>
+        </StyledTodoItem>
       ))}
     </ul>
   );
 };
+
+const StyledTodoItem = styled.li<{ completed: boolean }>`
+  color: ${({ completed }) => completed && "#b9b9b9"};
+`;
 
 export default TodoList;
