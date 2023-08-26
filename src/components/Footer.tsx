@@ -6,11 +6,9 @@ type Props = {
 };
 
 const Footer = ({ todos }: Props) => {
-  const leftTodosCount = todos.filter(
-    (item) => item.completed === false
-  ).length;
+  const leftTodosCount = todos.filter((item) => !item.completed).length;
 
-  if (!leftTodosCount) return <>할 일 없음</>;
+  if (!leftTodosCount) return <div>할 일 없음</div>;
 
   return (
     <div>

@@ -34,6 +34,17 @@ function App() {
     setTodos([...todos].filter((item) => item.id !== id));
   };
 
+  const handleCheck = (id: number) => {
+    setTodos(
+      [...todos].map((item) => {
+        if (item.id === id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <div>
       <h1>할 일 목록</h1>
@@ -42,7 +53,11 @@ function App() {
         handleSubmitTodo={handleSubmitTodo}
         inputText={inputText}
       />
-      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
+      <TodoList
+        todos={todos}
+        handleDeleteTodo={handleDeleteTodo}
+        handleCheck={handleCheck}
+      />
       <Footer todos={todos} setTodos={setTodos} />
     </div>
   );
